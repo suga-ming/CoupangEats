@@ -1,12 +1,23 @@
-import React from "react";
 import styled from "styled-components";
-import mobilePreparingImg from "assets/img/img_mobile_preparing.png";
+import logo from "../assets/Logo.png";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const Logo = styled.img`
+  width: 300px;
+  height: 99px;
+`;
 
 const MobilePage = () => {
   return (
-    <div>
-      <div>모바일</div>
-    </div>
+    <Container>
+      <Logo src={logo} />
+    </Container>
   );
 };
 
