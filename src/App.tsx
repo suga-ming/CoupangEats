@@ -13,12 +13,6 @@ function App() {
     <>
       <GlobalStyle />
       <Router />
-      <MobileView>
-        <MobilePage />
-      </MobileView>
-      <BrowserView>
-        <BrowserPage />
-      </BrowserView>
       <ReactQueryDevtools initialIsOpen></ReactQueryDevtools>
     </>
   );

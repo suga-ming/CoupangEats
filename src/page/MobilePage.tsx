@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/Logo.png";
 
@@ -16,7 +16,12 @@ const Logo = styled.img`
 `;
 
 const MobilePage = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      navigate("/home");
+    }, 1500);
+  });
 
   return (
     <Container>
