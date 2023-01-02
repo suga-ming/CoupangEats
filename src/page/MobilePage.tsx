@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/Logo.png";
 
@@ -14,6 +16,8 @@ const Logo = styled.img`
 `;
 
 const MobilePage = () => {
+  // const navigate = useNavigate();
+
   return (
     <Container>
       <Logo src={logo} />
