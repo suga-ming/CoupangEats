@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import banner from "../assets/banner.png";
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 import Store from "../Components/Store";
 
 const Container = styled.div`
@@ -118,7 +120,8 @@ export const Flex = styled.div`
 
 const Home = () => {
   return (
-    <Container>
+    <Container className="bg">
+      <Header />
       <Banner>
         <BannerImg src={banner} />
         <Event>이벤트 전체보기</Event>
@@ -179,6 +182,7 @@ const Home = () => {
       <Store />
       <Store />
       <Store />
+      <Footer />
     </Container>
   );
 };

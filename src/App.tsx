@@ -15,10 +15,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Header />
       <Router />
-      <Footer />
-      <ReactQueryDevtools initialIsOpen></ReactQueryDevtools>
+      {/* <ReactQueryDevtools initialIsOpen></ReactQueryDevtools> */}
     </>
   );
 }

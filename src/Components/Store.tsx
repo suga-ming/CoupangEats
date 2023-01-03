@@ -45,8 +45,8 @@ const FastImg = styled.img`
 `;
 
 const StarImg = styled.img`
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
 `;
 const TimeText = styled.div`
   margin-right: 15px;
