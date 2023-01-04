@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import fast from "../assets/Fast.jpeg";
 import star from "../assets/star.png";
+import heartFood from "../assets/burgerking.png";
 
 const Container = styled.div`
   margin-top: 30px;
@@ -9,10 +11,15 @@ const Container = styled.div`
 `;
 
 const Heart = () => {
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate("/home");
+  };
   return (
     <Container>
       <div className="flex justify-between items-center px-6 mb-4">
         <svg
+          onClick={goHome}
           className="rotate-180 w-6 h-6"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -37,7 +44,7 @@ const Heart = () => {
       </div>
       <div className="p-1 bg-gray-100"></div>
       <div className="flex p-4">
-        <div className="w-28 h-28 bg-yellow-300 shadow-none mr-1"></div>
+        <img src={heartFood} className="w-28 h-28 shadow-none mr-1"></img>
         <div className="p-2">
           <div className="flex items-center mb-1">
             <div className="font-bold mr-3 text-base">버거킹 신논현역점</div>
