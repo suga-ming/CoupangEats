@@ -1,3 +1,4 @@
+import { useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Footer from "../Components/Footer";
 import food from "../assets/food.png";
@@ -25,9 +26,19 @@ const ActiveList = styled.div`
   font-weight: 500;
 `;
 
+const List = styled.div`
+  width: 50%;
+  text-align: center;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9ca3af;
+  font-weight: 500;
+`;
+
 const ListArea = styled.div`
   padding: 16px;
-  border: 1px solid #b5b5b5;
+  border: 1px solid #cdcdcd;
   margin: 0 20px 10px 20px;
   border-radius: 10px;
   position: relative;
@@ -59,14 +70,20 @@ const Receipt = styled.div`
   font-size: 13px;
 `;
 
-const OrderList = () => {
+const Order = () => {
+  const navigate = useNavigate();
+  const listMatch = useMatch("/order");
+  const prepareMatch = useMatch("/order/prepare");
+
+  const goPrepare = () => {
+    navigate("/order/prepare");
+  };
+
   return (
     <Container>
       <div className="flex justify-center">
         <ActiveList>과거 주문 내역</ActiveList>
-        <div className="w-6/12 text-center p-4 text-base text-gray-400">
-          준비중
-        </div>
+        <List onClick={goPrepare}>준비중</List>
       </div>
       <div className="flex items-center bg-blue-100 p-3">
         <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -135,4 +152,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList;
+export default Order;
