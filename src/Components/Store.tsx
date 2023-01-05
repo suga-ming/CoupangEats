@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Flex } from "../page/Home";
 import fast from "../assets/Fast.jpeg";
 import star from "../assets/star.png";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   margin-bottom: 10px;
@@ -71,8 +72,12 @@ const Packaging = styled.div`
 `;
 
 const Store = () => {
+  const navigate = useNavigate();
+  const goStoreDetail = () => {
+    navigate("/detail");
+  };
   return (
-    <Container>
+    <Container onClick={goStoreDetail}>
       <StoreImgBox>
         <Img1 />
         <Img2Box>

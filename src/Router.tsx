@@ -10,6 +10,7 @@ import MyEats from "./page/MyEats";
 import Order from "./page/Order";
 import Prepare from "./page/Prepare";
 import Search from "./page/Search";
+import StoreDetail from "./page/StoreDetail";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
             element={isMobile ? <MobilePage /> : <BrowserPage />}
           />
           <Route path="/home" element={<Home />} />
+          <Route path="/detail" element={<StoreDetail />} />
           <Route path="/search" element={<Search />} />
           <Route path="/heart" element={<Heart />} />
           <Route path="/order" element={<Order />} />
