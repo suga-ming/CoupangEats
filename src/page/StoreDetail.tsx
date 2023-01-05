@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import banner from "../assets/storeBanner.png";
 import fast from "../assets/Fast.jpeg";
+import cat from "../assets/cat.jpeg";
 import star from "../assets/star.png";
 import { useNavigate } from "react-router-dom";
 
@@ -74,6 +75,14 @@ const DownSvg = styled.svg`
   /* transform: ; */
 `;
 
+const Review = styled.div`
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  padding: 16px;
+  margin-top: 18px;
+`;
+
 const StoreDetail = () => {
   const navigate = useNavigate();
   const goHome = () => {
@@ -119,7 +128,7 @@ const StoreDetail = () => {
       <div className="px-5 w-full absolute top-44">
         <StoreInfo>
           <div className="text-2xl font-bold mb-2">과일샵CAFE.리치 서초점</div>
-          <div className="flex items-center mb-5">
+          <div className="flex items-center mb-4">
             <img className="w-13 h-4 mr-2" src={fast} />
             <div className="flex items-center">
               <img className="w-6 h-6" src={star} />
@@ -170,6 +179,34 @@ const StoreDetail = () => {
             <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
           </DownSvg>
         </div>
+      </div>
+      <div className="pl-5">
+        <div className="flex mb-2 items-center">
+          <div className="text-sm text-gray-600 font-medium mr-12">배달비</div>
+          <div className="text-sm font-medium mr-2">무료배달~</div>
+          <div className="text-sm bg-gray-100 p-2 h-6 rounded-full flex justify-center items-center">
+            자세히
+          </div>
+        </div>
+        <div className="flex">
+          <div className="text-sm text-gray-600 font-medium mr-9">최소주문</div>
+          <div className="text-sm font-medium">9,800원</div>
+        </div>
+      </div>
+      <div className="px-4 flex">
+        <Review>
+          <img className="w-16 h-16 mr-3" src={cat} />
+          <div className="flex flex-col justify-between">
+            <div>저희집 고양이도 탐내는 수박,,</div>
+            <div className="flex">
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+            </div>
+          </div>
+        </Review>
       </div>
     </div>
   );
