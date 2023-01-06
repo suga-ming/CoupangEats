@@ -81,6 +81,16 @@ const Review = styled.div`
   display: flex;
   padding: 16px;
   margin-top: 18px;
+  width: 300px;
+  margin-right: 15px;
+`;
+
+const ReviewArea = styled.div`
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 16px;
 `;
 
 const StoreDetail = () => {
@@ -193,7 +203,7 @@ const StoreDetail = () => {
           <div className="text-sm font-medium">9,800원</div>
         </div>
       </div>
-      <div className="px-4 flex">
+      <ReviewArea>
         <Review>
           <img className="w-16 h-16 mr-3" src={cat} />
           <div className="flex flex-col justify-between">
@@ -207,7 +217,46 @@ const StoreDetail = () => {
             </div>
           </div>
         </Review>
-      </div>
+        <Review>
+          <img className="w-16 h-16 mr-3" src={cat} />
+          <div className="flex flex-col justify-between">
+            <div>저희집 고양이도 탐내는 수박,,</div>
+            <div className="flex">
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+            </div>
+          </div>
+        </Review>
+        <Review>
+          <img className="w-16 h-16 mr-3" src={cat} />
+          <div className="flex flex-col justify-between">
+            <div>저희집 고양이도 탐내는 수박,,</div>
+            <div className="flex">
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+            </div>
+          </div>
+        </Review>
+        <Review>
+          <img className="w-16 h-16 mr-3" src={cat} />
+          <div className="flex flex-col justify-between">
+            <div>저희집 고양이도 탐내는 수박,,</div>
+            <div className="flex">
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+              <img className="w-5 h-5" src={star} />
+            </div>
+          </div>
+        </Review>
+      </ReviewArea>
     </div>
   );
 };
