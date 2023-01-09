@@ -102,7 +102,7 @@ const MenuDetail = () => {
             <Minus quantity={quantity} onClick={onMinus}>
               -
             </Minus>
-            <div className="px-2">{quantity}</div>
+            <div className="px-2 font-semibold">{quantity}</div>
             <Plus quantity={quantity} onClick={onPlus}>
               +
             </Plus>
