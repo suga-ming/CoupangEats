@@ -41,8 +41,8 @@ const Plus = styled.div<{ quantity: number }>`
 
 const MenuDetail = () => {
   const navigate = useNavigate();
-  const goHome = () => {
-    navigate("/home");
+  const goDetail = () => {
+    navigate("/detail");
   };
   const [quantity, setQuantity] = useState(0);
 
@@ -63,7 +63,7 @@ const MenuDetail = () => {
   return (
     <div className="h-screen flex flex-col justify-between ">
       <svg
-        onClick={goHome}
+        onClick={goDetail}
         className="rotate-180 w-6 h-6 absolute top-12 left-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
