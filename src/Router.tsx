@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import BrowserPage from "./page/BrowserPage";
 import Heart from "./page/Heart";
 import Home from "./page/Home";
+import MenuDetail from "./page/MenuDetail";
 import MobilePage from "./page/MobilePage";
 import MyEats from "./page/MyEats";
 import Order from "./page/Order";
@@ -23,6 +24,7 @@ const Router = () => {
           />
           <Route path="/home" element={<Home />} />
           <Route path="/detail" element={<StoreDetail />} />
+          <Route path="/menu" element={<MenuDetail />} />
           <Route path="/search" element={<Search />} />
           <Route path="/heart" element={<Heart />} />
           <Route path="/order" element={<Order />} />

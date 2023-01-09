@@ -4,6 +4,13 @@ import fast from "../assets/Fast.jpeg";
 import cat from "../assets/cat.jpeg";
 import star from "../assets/star.png";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const Container = styled.div`
+  overflow: hidden;
+  height: 100vh;
+`;
 
 const Banner = styled.div`
   background-image: url(${banner});
@@ -72,7 +79,6 @@ const DownSvg = styled.svg`
   width: 14px;
   height: 14px;
   transform: rotate(270deg);
-  /* transform: ; */
 `;
 
 const Review = styled.div`
@@ -91,13 +97,65 @@ const ReviewArea = styled.div`
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   padding: 0 16px;
+  margin-bottom: 30px;
 `;
+
+const MenuScroll = styled.div`
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+`;
+
+const Overlay = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  height: 100vh;
+`;
+
+const DeliveryFee = styled(motion.div)`
+  position: absolute;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+`;
+
+const Check = styled.div`
+  border-top: 1.5px solid rgba(0, 175, 252);
+  color: rgba(0, 175, 252);
+  font-weight: 700;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+`;
+
+const feeBox = {
+  start: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.3 } },
+  end: { opacity: 0 },
+};
 
 const StoreDetail = () => {
   const navigate = useNavigate();
   const goHome = () => {
     navigate("/home");
   };
+  const goMenuDetail = () => {
+    navigate("/menu");
+  };
+
+  const overlayClick = () => {
+    setDetail(false);
+  };
+
+  const [detail, setDetail] = useState(false);
   return (
     <div className="relative">
       <Banner />
@@ -194,7 +252,10 @@ const StoreDetail = () => {
         <div className="flex mb-2 items-center">
           <div className="text-sm text-gray-600 font-medium mr-12">배달비</div>
           <div className="text-sm font-medium mr-2">무료배달~</div>
-          <div className="text-sm bg-gray-100 p-2 h-6 rounded-full flex justify-center items-center">
+          <div
+            onClick={() => setDetail(true)}
+            className="text-sm bg-gray-100 p-2 h-6 rounded-full flex justify-center items-center"
+          >
             자세히
           </div>
         </div>
@@ -203,6 +264,39 @@ const StoreDetail = () => {
           <div className="text-sm font-medium">9,800원</div>
         </div>
       </div>
+      <AnimatePresence>
+        {detail ? (
+          <>
+            <Overlay
+              onClick={overlayClick}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            <DeliveryFee
+              variants={feeBox}
+              initial="start"
+              animate="visible"
+              exit="end"
+            >
+              <div className="text-center my-5 font-medium">배달비 안내</div>
+              <div className="flex justify-between pb-2 border-b-2 px-5 border-gray-500">
+                <div>주문금액</div>
+                <div>배달비</div>
+              </div>
+              <div className="flex justify-between py-1 px-5 font-normal">
+                <div>9,800원 ~ 30,000원</div>
+                <div>2,300원</div>
+              </div>
+              <div className="flex justify-between px-5 pb-4 font-normal">
+                <div>30,000원 ~</div>
+                <div>무료</div>
+              </div>
+              <Check onClick={overlayClick}>확인</Check>
+            </DeliveryFee>
+          </>
+        ) : null}
+        a
+      </AnimatePresence>
       <ReviewArea>
         <Review>
           <img className="w-16 h-16 mr-3" src={cat} />
@@ -257,6 +351,35 @@ const StoreDetail = () => {
           </div>
         </Review>
       </ReviewArea>
+      <MenuScroll>
+        <div className="py-4 px-5 font-bold">
+          꿀수박 E벤트 : 널 좋아할 '수박'에
+        </div>
+        <div className="py-4 px-5">추천메뉴</div>
+        <div className="py-4 px-5">커피</div>
+        <div className="py-4 px-5">과일쥬스</div>
+      </MenuScroll>
+      <div className="p-4">꿀수박 E벤트 : 널 좋아할 '수박'에</div>
+      <div onClick={goMenuDetail} className="flex p-4 justify-between">
+        <div>
+          <div className="font-bold mb-2">꿀 수박쥬스</div>
+          <div className="font-light mb-1">4,000원</div>
+          <div className="text-gray-400 text-sm">
+            고당도 수박으로 보내드려요
+          </div>
+        </div>
+        <div className="bg-orange-200 w-20 h-20" />
+      </div>
+      <div onClick={goMenuDetail} className="flex p-4 justify-between">
+        <div>
+          <div className="font-bold mb-2">꿀 수박쥬스</div>
+          <div className="font-light mb-1">4,000원</div>
+          <div className="text-gray-400 text-sm">
+            고당도 수박으로 보내드려요
+          </div>
+        </div>
+        <div className="bg-orange-200 w-20 h-20" />
+      </div>
     </div>
   );
 };
