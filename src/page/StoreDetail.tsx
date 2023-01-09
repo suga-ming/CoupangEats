@@ -161,7 +161,7 @@ const StoreDetail = () => {
       <Banner />
       <svg
         onClick={goHome}
-        className="rotate-180 w-6 h-6 absolute top-12 left-3"
+        className="rotate-180 w-6 h-6 absolute top-12 left-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
       >
