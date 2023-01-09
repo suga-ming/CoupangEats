@@ -13,22 +13,26 @@ const Solid = styled.div`
   height: 1px;
 `;
 
-const Minus = styled.div`
+const Minus = styled.div<{ quantity: number }>`
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 1px solid gray;
+  border: ${(props) =>
+    props.quantity == 0 ? "1px solid #d3d4d6" : "1px solid gray"};
+  color: ${(props) => (props.quantity == 0 ? "#d3d4d6" : "gray")};
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
 `;
 
-const Plus = styled.div`
+const Plus = styled.div<{ quantity: number }>`
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 1px solid gray;
+  border: ${(props) =>
+    props.quantity == 100 ? "1px solid #d3d4d6" : "1px solid gray"};
+  color: ${(props) => (props.quantity == 100 ? "#d3d4d6" : "gray")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,9 +99,13 @@ const MenuDetail = () => {
         <div className="flex justify-between px-5 py-2">
           <div className="font-semibold">수량</div>
           <div className="flex items-center justify-center">
-            <Minus onClick={onMinus}>-</Minus>
+            <Minus quantity={quantity} onClick={onMinus}>
+              -
+            </Minus>
             <div className="px-2">{quantity}</div>
-            <Plus onClick={onPlus}>+</Plus>
+            <Plus quantity={quantity} onClick={onPlus}>
+              +
+            </Plus>
           </div>
         </div>
       </div>
